@@ -4,7 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ocean Platform Systems | Marine Engineering Validation</title>
-    <meta name="description" content="Ocean Platform Systems provides rigorous hydrodynamic modeling, extreme load assessment, and structural validation for marine energy and multi-use ocean architecture.">
+    <meta name="description" content="Independent hydrodynamic and structural validation for marine energy and multi-use ocean platforms.">
+    <link rel="canonical" href="https://www.oceanplatformsystems.com/">
+
+    <!-- Favicon: inline SVG mark (cyan node on deep abyss) -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2305080f'/%3E%3Cpath d='M4 20c3 0 3-3 6-3s3 3 6 3 3-3 6-3 3 3 6 3' fill='none' stroke='%2338bdf8' stroke-width='2'/%3E%3Ccircle cx='16' cy='9' r='3' fill='%2338bdf8'/%3E%3C/svg%3E">
+
+    <!-- Open Graph / social sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ocean Platform Systems | Marine Engineering Validation">
+    <meta property="og:description" content="Independent hydrodynamic and structural validation for marine energy and multi-use ocean platforms.">
+    <meta property="og:url" content="https://www.oceanplatformsystems.com/">
+    <meta property="og:site_name" content="Ocean Platform Systems">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ocean Platform Systems | Marine Engineering Validation">
+    <meta name="twitter:description" content="Independent hydrodynamic and structural validation for marine energy and multi-use ocean platforms.">
 
     <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -50,6 +64,10 @@
                 radial-gradient(50% 50% at 85% 20%, rgba(14,116,144,0.18) 0%, transparent 70%);
         }
         ::selection { background: rgba(56,189,248,0.25); }
+        /* Slow horizontal drift for the hero wave line-art */
+        @keyframes wave-drift { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        .wave-drift { animation: wave-drift 18s linear infinite; }
+        @media (prefers-reduced-motion: reduce) { .wave-drift { animation: none; } }
     </style>
 </head>
 
@@ -58,11 +76,9 @@
     <!-- ============ HEADER ============ -->
     <header class="fixed top-0 inset-x-0 z-50 border-b border-white/5 bg-abyss/80 backdrop-blur-md">
         <div class="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
-            <a href="#top" class="flex items-center gap-2.5 group">
-                <span class="inline-block h-2.5 w-2.5 rounded-full bg-accent shadow-[0_0_12px_2px_rgba(56,189,248,0.7)]"></span>
-                <span class="font-display font-semibold tracking-tight text-white text-sm sm:text-base">
-                    OCEAN&nbsp;PLATFORM&nbsp;SYSTEMS
-                </span>
+            <a href="#top" class="flex items-center group" aria-label="Ocean Platform Systems — home">
+                <img src="assets/ops-logo.png" alt="Ocean Platform Systems"
+                     class="h-11 w-auto [filter:brightness(0)_invert(1)] opacity-90 group-hover:opacity-100 transition-opacity">
             </a>
             <nav class="hidden md:flex items-center gap-8 text-sm text-slate-400">
                 <a href="#capabilities" class="hover:text-accent transition-colors">Capabilities</a>
@@ -77,21 +93,24 @@
 
         <!-- ============ HERO ============ -->
         <section class="relative overflow-hidden">
-            <div class="absolute inset-0 grid-overlay"></div>
-            <div class="absolute inset-0 depth-glow"></div>
+            <!-- Background photo (floating platform at sunset). Light overlay so the image reads -->
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image:url('assets/hero-platform.png')"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-abyss via-abyss/55 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-abyss via-transparent to-transparent"></div>
+            <div class="absolute inset-0 grid-overlay opacity-25"></div>
             <div class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent"></div>
 
             <div class="relative mx-auto max-w-6xl px-6 pt-40 pb-28 md:pt-48 md:pb-36">
-                <p class="font-mono text-xs uppercase tracking-[0.3em] text-accent/80 mb-6">
+                <p class="font-mono text-base md:text-lg uppercase tracking-[0.22em] text-accent/80 mb-6">
                     Marine Engineering &middot; Third-Party Validation
                 </p>
                 <h1 class="font-display font-bold text-white text-4xl sm:text-5xl md:text-6xl leading-[1.05] max-w-4xl">
                     De-risking the Ocean's Most Ambitious Infrastructure.
                 </h1>
                 <p class="mt-8 max-w-2xl text-lg leading-relaxed text-slate-400">
-                    Ocean Platform Systems provides rigorous hydrodynamic modeling, extreme load
-                    assessment, and structural validation for the next generation of marine energy
-                    and multi-use ocean architecture.
+                    Ocean Platform Systems delivers independent hydrodynamic and structural
+                    validation for marine energy and multi-use ocean platforms, built on numerical
+                    modeling of the sea states your hardware will actually meet.
                 </p>
                 <div class="mt-10 flex flex-wrap items-center gap-4">
                     <a href="#contact"
@@ -105,21 +124,54 @@
                     </a>
                 </div>
             </div>
+
+            <!-- Animated wave line-art (custom SVG, no external assets) -->
+            <div class="pointer-events-none absolute inset-x-0 bottom-0 h-40 overflow-hidden opacity-60" aria-hidden="true">
+                <svg class="absolute bottom-0 w-[200%] h-full wave-drift" viewBox="0 0 1440 160" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 96 Q 180 56 360 96 T 720 96 T 1080 96 T 1440 96" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.5"/>
+                    <path d="M0 112 Q 180 80 360 112 T 720 112 T 1080 112 T 1440 112" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.3"/>
+                    <path d="M0 128 Q 180 104 360 128 T 720 128 T 1080 128 T 1440 128" stroke="#0e7490" stroke-width="1" stroke-opacity="0.4"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- ============ STATS / CREDIBILITY BAND ============ -->
+        <section class="relative border-t border-white/5 bg-deep">
+            <div class="mx-auto max-w-6xl px-6 py-12">
+                <dl class="grid grid-cols-2 gap-y-8 gap-x-4 sm:grid-cols-4 text-center">
+                    <div>
+                        <dt class="font-display text-3xl md:text-4xl font-bold text-white">15<span class="text-accent">+</span></dt>
+                        <dd class="mt-1 text-xs uppercase tracking-widest text-slate-400">Years Offshore</dd>
+                    </div>
+                    <div>
+                        <dt class="font-display text-3xl md:text-4xl font-bold text-white">305<span class="text-accent">+</span></dt>
+                        <dd class="mt-1 text-xs uppercase tracking-widest text-slate-400">Citations</dd>
+                    </div>
+                    <div>
+                        <dt class="font-display text-3xl md:text-4xl font-bold text-white">15<span class="text-accent">+</span></dt>
+                        <dd class="mt-1 text-xs uppercase tracking-widest text-slate-400">Peer-Reviewed Papers</dd>
+                    </div>
+                    <div>
+                        <dt class="font-display text-3xl md:text-4xl font-bold text-white">LR&middot;BV&middot;GL&middot;DNV</dt>
+                        <dd class="mt-1 text-xs uppercase tracking-widest text-slate-400">Class Standards</dd>
+                    </div>
+                </dl>
+            </div>
         </section>
 
         <!-- ============ CAPABILITIES ============ -->
         <section id="capabilities" class="relative border-t border-white/5 bg-deep">
             <div class="mx-auto max-w-6xl px-6 py-24 md:py-32">
                 <div class="max-w-3xl">
-                    <p class="font-mono text-xs uppercase tracking-[0.3em] text-accent/80 mb-5">
+                    <p class="font-mono text-base md:text-lg uppercase tracking-[0.22em] text-accent/80 mb-5">
                         Core Analytical Capabilities
                     </p>
                     <h2 class="font-display font-bold text-white text-3xl md:text-4xl leading-tight">
-                        We do not rely on projections. We rely on physics.
+                        Engineering validation grounded in physics.
                     </h2>
                     <p class="mt-6 text-lg leading-relaxed text-slate-400">
-                        OPS provides third-party engineering validation to ensure complex offshore
-                        hardware survives energetic marine environments.
+                        OPS provides independent engineering validation that confirms offshore
+                        hardware will survive the conditions it is built for.
                     </p>
                 </div>
 
@@ -137,7 +189,7 @@
                         <span class="font-mono text-sm text-accent/70">02</span>
                         <h3 class="mt-4 font-display text-xl font-semibold text-white">Mooring System Engineering</h3>
                         <p class="mt-3 leading-relaxed text-slate-400">
-                            Dynamic analysis, fatigue lifecycle calculations, and footprint optimization.
+                            Dynamic and fatigue-life analysis of station-keeping systems, optimized for footprint and cost.
                         </p>
                     </div>
                     <!-- Item 3 -->
@@ -153,7 +205,7 @@
                         <span class="font-mono text-sm text-accent/70">04</span>
                         <h3 class="mt-4 font-display text-xl font-semibold text-white">The Software Toolkit</h3>
                         <p class="mt-3 leading-relaxed text-slate-400">
-                            Commercial-grade execution using OrcaFlex, WAMIT, NEMOH, and custom Python data architectures.
+                            Commercial-grade execution in OrcaFlex, WAMIT, and NEMOH, supported by custom Python tooling.
                         </p>
                     </div>
                 </div>
@@ -164,7 +216,7 @@
         <section id="forward" class="relative border-t border-white/5 bg-abyss overflow-hidden">
             <div class="absolute inset-0 depth-glow opacity-60"></div>
             <div class="relative mx-auto max-w-5xl px-6 py-24 md:py-32">
-                <p class="font-mono text-xs uppercase tracking-[0.3em] text-accent/80 mb-6">
+                <p class="font-mono text-base md:text-lg uppercase tracking-[0.22em] text-accent/80 mb-6">
                     Forward Engineering
                 </p>
                 <h2 class="font-display font-bold text-white text-3xl md:text-5xl leading-tight max-w-3xl">
@@ -187,15 +239,15 @@
             <div class="mx-auto max-w-6xl px-6 py-24 md:py-32">
                 <div class="grid gap-12 lg:grid-cols-3">
                     <div class="lg:col-span-1">
-                        <p class="font-mono text-xs uppercase tracking-[0.3em] text-accent/80 mb-5">
+                        <p class="font-mono text-base md:text-lg uppercase tracking-[0.22em] text-accent/80 mb-5">
                             Proven Offshore Experience
                         </p>
                         <h2 class="font-display font-bold text-white text-3xl md:text-4xl leading-tight">
-                            Validation at the highest commercial levels.
+                            Built on delivered offshore projects.
                         </h2>
                         <p class="mt-6 leading-relaxed text-slate-400">
-                            Over 15 years of coastal and civil engineering expertise, delivering
-                            technical validation at the highest commercial levels.
+                            More than fifteen years in coastal and civil engineering, with analysis
+                            delivered on commercial offshore projects across Europe, Asia, and North America.
                         </p>
                     </div>
 
@@ -234,6 +286,23 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Track record: institutions worked with -->
+                <div class="mt-16 border-t border-white/10 pt-10">
+                    <p class="text-center font-mono text-xs uppercase tracking-[0.3em] text-slate-500 mb-8">
+                        Experience delivered with &amp; for
+                    </p>
+                    <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-slate-400">
+                        <span class="font-display font-semibold text-base md:text-lg">Principle Power</span>
+                        <span class="font-display font-semibold text-base md:text-lg">WAVEC</span>
+                        <span class="font-display font-semibold text-base md:text-lg">Ghenova</span>
+                        <span class="font-display font-semibold text-base md:text-lg">ISIGENERE</span>
+                        <span class="font-display font-semibold text-base md:text-lg">Cerema</span>
+                        <span class="font-display font-semibold text-base md:text-lg">France Energies Marines</span>
+                        <span class="font-display font-semibold text-base md:text-lg">Ghent University</span>
+                        <span class="font-display font-semibold text-base md:text-lg">NREL&nbsp;/&nbsp;US&nbsp;DOE</span>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -242,12 +311,12 @@
             <div class="absolute inset-0 grid-overlay opacity-40"></div>
             <div class="relative mx-auto max-w-3xl px-6 py-24 md:py-32">
                 <div class="text-center">
-                    <p class="font-mono text-xs uppercase tracking-[0.3em] text-accent/80 mb-5">
+                    <h2 class="font-display font-bold text-white text-3xl md:text-4xl leading-tight">
+                        Ready to hit the water?
+                    </h2>
+                    <p class="font-mono text-base md:text-lg uppercase tracking-[0.22em] text-accent/80 mt-5">
                         Get in Touch
                     </p>
-                    <h2 class="font-display font-bold text-white text-3xl md:text-4xl leading-tight">
-                        Secure Your Infrastructure.
-                    </h2>
                     <p class="mt-5 leading-relaxed text-slate-400">
                         Tell us about your platform. We will respond with a scoped validation pathway.
                     </p>
@@ -266,35 +335,40 @@
                         <div>
                             <label for="name" class="block text-sm font-medium text-slate-300 mb-2">Name</label>
                             <input type="text" id="name" name="name" required
-                                   class="w-full rounded-md border border-white/10 bg-abyss/80 px-4 py-3 text-white placeholder-slate-500 focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none transition"
-                                   placeholder="Jane Engineer">
+                                   class="w-full rounded-md border border-white/10 bg-abyss/80 px-4 py-3 text-white placeholder-slate-500 focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none transition">
                         </div>
                         <div>
                             <label for="organization" class="block text-sm font-medium text-slate-300 mb-2">Organization</label>
                             <input type="text" id="organization" name="organization"
-                                   class="w-full rounded-md border border-white/10 bg-abyss/80 px-4 py-3 text-white placeholder-slate-500 focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none transition"
-                                   placeholder="Company / Institution">
+                                   class="w-full rounded-md border border-white/10 bg-abyss/80 px-4 py-3 text-white placeholder-slate-500 focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none transition">
                         </div>
                     </div>
 
                     <div class="grid gap-6 sm:grid-cols-2">
                         <div>
-                            <label for="project-type" class="block text-sm font-medium text-slate-300 mb-2">Project Type</label>
+                            <label for="project-type" class="block text-sm font-medium text-slate-300 mb-2">Platform / Sector</label>
                             <select id="project-type" name="project-type"
                                     class="w-full rounded-md border border-white/10 bg-abyss/80 px-4 py-3 text-white focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none transition">
-                                <option value="Floating Wind">Floating Wind</option>
-                                <option value="FPV">FPV</option>
-                                <option value="Multi-Use">Multi-Use</option>
-                                <option value="Other">Other</option>
+                                <option value="Floating Offshore Wind">Floating Offshore Wind</option>
+                                <option value="Floating Solar (FPV)">Floating Solar (FPV)</option>
+                                <option value="Wave Energy">Wave Energy</option>
+                                <option value="Tidal &amp; Current">Tidal &amp; Current</option>
+                                <option value="Offshore Aquaculture">Offshore Aquaculture</option>
+                                <option value="Multi-Use Platform">Multi-Use Platform</option>
+                                <option value="Other / Early Concept">Other / Early Concept</option>
                             </select>
                         </div>
                         <div>
-                            <label for="analytical-requirement" class="block text-sm font-medium text-slate-300 mb-2">Analytical Requirement</label>
+                            <label for="analytical-requirement" class="block text-sm font-medium text-slate-300 mb-2">Scope of Work</label>
                             <select id="analytical-requirement" name="analytical-requirement"
                                     class="w-full rounded-md border border-white/10 bg-abyss/80 px-4 py-3 text-white focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none transition">
-                                <option value="OrcaFlex">OrcaFlex</option>
-                                <option value="SWAN">SWAN</option>
-                                <option value="Structural">Structural</option>
+                                <option value="Hydrodynamic Modeling">Hydrodynamic Modeling</option>
+                                <option value="Mooring Analysis &amp; Design">Mooring Analysis &amp; Design</option>
+                                <option value="Structural Analysis (FEA)">Structural Analysis (FEA)</option>
+                                <option value="Extreme Load &amp; Metocean Assessment">Extreme Load &amp; Metocean Assessment</option>
+                                <option value="Wave &amp; Coastal Modeling">Wave &amp; Coastal Modeling</option>
+                                <option value="Techno-Economic Feasibility">Techno-Economic Feasibility</option>
+                                <option value="Concept Development / R&amp;D">Concept Development / R&amp;D</option>
                                 <option value="General Inquiry">General Inquiry</option>
                             </select>
                         </div>
