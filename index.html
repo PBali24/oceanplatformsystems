@@ -1,11 +1,393 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <title>Ocean Platform Systems | Technical Validation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocean Platform Systems | Marine Engineering Validation</title>
+    <meta name="description" content="Ocean Platform Systems provides rigorous hydrodynamic modeling, extreme load assessment, and structural validation for marine energy and multi-use ocean architecture.">
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        abyss:   '#05080f',
+                        deep:    '#0a1018',
+                        panel:   '#0e1622',
+                        steel:   '#1b2735',
+                        accent:  '#38bdf8',
+                        'accent-dim': '#0e7490',
+                    },
+                    fontFamily: {
+                        sans:    ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Space Grotesk', 'Inter', 'sans-serif'],
+                        mono:    ['JetBrains Mono', 'ui-monospace', 'monospace'],
+                    },
+                },
+            },
+        };
+    </script>
+
+    <style>
+        /* Subtle engineering grid + radial depth for the hero */
+        .grid-overlay {
+            background-image:
+                linear-gradient(to right, rgba(56,189,248,0.06) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(56,189,248,0.06) 1px, transparent 1px);
+            background-size: 56px 56px;
+        }
+        .depth-glow {
+            background:
+                radial-gradient(60% 55% at 50% 0%, rgba(56,189,248,0.16) 0%, transparent 70%),
+                radial-gradient(50% 50% at 85% 20%, rgba(14,116,144,0.18) 0%, transparent 70%);
+        }
+        ::selection { background: rgba(56,189,248,0.25); }
+    </style>
 </head>
-<body>
-    <h1>Ocean Platform Systems</h1>
-    <p>Infrastructure deployment pending. Bye Bye GoDaddy.</p>
+
+<body class="bg-abyss text-slate-300 font-sans antialiased selection:text-white">
+
+    <!-- ============ HEADER ============ -->
+    <header class="fixed top-0 inset-x-0 z-50 border-b border-white/5 bg-abyss/80 backdrop-blur-md">
+        <div class="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
+            <a href="#top" class="flex items-center gap-2.5 group">
+                <span class="inline-block h-2.5 w-2.5 rounded-full bg-accent shadow-[0_0_12px_2px_rgba(56,189,248,0.7)]"></span>
+                <span class="font-display font-semibold tracking-tight text-white text-sm sm:text-base">
+                    OCEAN&nbsp;PLATFORM&nbsp;SYSTEMS
+                </span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm text-slate-400">
+                <a href="#capabilities" class="hover:text-accent transition-colors">Capabilities</a>
+                <a href="#forward" class="hover:text-accent transition-colors">Approach</a>
+                <a href="#experience" class="hover:text-accent transition-colors">Experience</a>
+                <a href="#contact" class="rounded-md border border-accent/40 px-4 py-1.5 text-accent hover:bg-accent hover:text-abyss transition-colors">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="top">
+
+        <!-- ============ HERO ============ -->
+        <section class="relative overflow-hidden">
+            <div class="absolute inset-0 grid-overlay"></div>
+            <div class="absolute inset-0 depth-glow"></div>
+            <div class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent"></div>
+
+            <div class="relative mx-auto max-w-6xl px-6 pt-40 pb-28 md:pt-48 md:pb-36">
+                <p class="font-mono text-xs uppercase tracking-[0.3em] text-accent/80 mb-6">
+                    Marine Engineering &middot; Third-Party Validation
+                </p>
+                <h1 class="font-display font-bold text-white text-4xl sm:text-5xl md:text-6xl leading-[1.05] max-w-4xl">
+                    De-risking the Ocean's Most Ambitious Infrastructure.
+                </h1>
+                <p class="mt-8 max-w-2xl text-lg leading-relaxed text-slate-400">
+                    Ocean Platform Systems provides rigorous hydrodynamic modeling, extreme load
+                    assessment, and structural validation for the next generation of marine energy
+                    and multi-use ocean architecture.
+                </p>
+                <div class="mt-10 flex flex-wrap items-center gap-4">
+                    <a href="#contact"
+                       class="inline-flex items-center gap-2 rounded-md bg-accent px-6 py-3.5 font-medium text-abyss hover:bg-white transition-colors">
+                        Submit Your Project for Validation
+                        <span aria-hidden="true">&rarr;</span>
+                    </a>
+                    <a href="#capabilities"
+                       class="inline-flex items-center gap-2 rounded-md border border-white/15 px-6 py-3.5 font-medium text-slate-300 hover:border-accent/50 hover:text-white transition-colors">
+                        View Capabilities
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CAPABILITIES ============ -->
+        <section id="capabilities" class="relative border-t border-white/5 bg-deep">
+            <div class="mx-auto max-w-6xl px-6 py-24 md:py-32">
+                <div class="max-w-3xl">
+                    <p class="font-mono text-xs uppercase tracking-[0.3em] text-accent/80 mb-5">
+                        Core Analytical Capabilities
+                    </p>
+                    <h2 class="font-display font-bold text-white text-3xl md:text-4xl leading-tight">
+                        We do not rely on projections. We rely on physics.
+                    </h2>
+                    <p class="mt-6 text-lg leading-relaxed text-slate-400">
+                        OPS provides third-party engineering validation to ensure complex offshore
+                        hardware survives energetic marine environments.
+                    </p>
+                </div>
+
+                <div class="mt-16 grid gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10 sm:grid-cols-2">
+                    <!-- Item 1 -->
+                    <div class="group bg-panel p-8 md:p-10 hover:bg-steel transition-colors">
+                        <span class="font-mono text-sm text-accent/70">01</span>
+                        <h3 class="mt-4 font-display text-xl font-semibold text-white">Hydrodynamic Modeling</h3>
+                        <p class="mt-3 leading-relaxed text-slate-400">
+                            Advanced wave kinematics and kinetic energy dissipation analysis.
+                        </p>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="group bg-panel p-8 md:p-10 hover:bg-steel transition-colors">
+                        <span class="font-mono text-sm text-accent/70">02</span>
+                        <h3 class="mt-4 font-display text-xl font-semibold text-white">Mooring System Engineering</h3>
+                        <p class="mt-3 leading-relaxed text-slate-400">
+                            Dynamic analysis, fatigue lifecycle calculations, and footprint optimization.
+                        </p>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="group bg-panel p-8 md:p-10 hover:bg-steel transition-colors">
+                        <span class="font-mono text-sm text-accent/70">03</span>
+                        <h3 class="mt-4 font-display text-xl font-semibold text-white">Wave-Structure Interaction</h3>
+                        <p class="mt-3 leading-relaxed text-slate-400">
+                            Multi-body kinematic constraint modeling for floating solar and multi-use platforms.
+                        </p>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="group bg-panel p-8 md:p-10 hover:bg-steel transition-colors">
+                        <span class="font-mono text-sm text-accent/70">04</span>
+                        <h3 class="mt-4 font-display text-xl font-semibold text-white">The Software Toolkit</h3>
+                        <p class="mt-3 leading-relaxed text-slate-400">
+                            Commercial-grade execution using OrcaFlex, WAMIT, NEMOH, and custom Python data architectures.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ FORWARD ENGINEERING ============ -->
+        <section id="forward" class="relative border-t border-white/5 bg-abyss overflow-hidden">
+            <div class="absolute inset-0 depth-glow opacity-60"></div>
+            <div class="relative mx-auto max-w-5xl px-6 py-24 md:py-32">
+                <p class="font-mono text-xs uppercase tracking-[0.3em] text-accent/80 mb-6">
+                    Forward Engineering
+                </p>
+                <h2 class="font-display font-bold text-white text-3xl md:text-5xl leading-tight max-w-3xl">
+                    Validating the Impossible.
+                </h2>
+                <p class="mt-8 text-xl md:text-2xl leading-relaxed text-slate-300 font-light max-w-4xl">
+                    The sustainable future of the ocean is here and at Ocean Platform Systems we are
+                    riding the wave. Whether you are developing offshore wind, floating solar,
+                    offshore aquaculture, or autonomous marine data centers,
+                    <span class="text-white font-normal">visionary concepts require ruthless engineering.</span>
+                    We take ambitious, untested offshore ideas and subject them to extreme
+                    environmental simulations, providing the mathematical proof required to secure
+                    consortium grants and EPC deployment.
+                </p>
+            </div>
+        </section>
+
+        <!-- ============ EXPERIENCE ============ -->
+        <section id="experience" class="relative border-t border-white/5 bg-deep">
+            <div class="mx-auto max-w-6xl px-6 py-24 md:py-32">
+                <div class="grid gap-12 lg:grid-cols-3">
+                    <div class="lg:col-span-1">
+                        <p class="font-mono text-xs uppercase tracking-[0.3em] text-accent/80 mb-5">
+                            Proven Offshore Experience
+                        </p>
+                        <h2 class="font-display font-bold text-white text-3xl md:text-4xl leading-tight">
+                            Validation at the highest commercial levels.
+                        </h2>
+                        <p class="mt-6 leading-relaxed text-slate-400">
+                            Over 15 years of coastal and civil engineering expertise, delivering
+                            technical validation at the highest commercial levels.
+                        </p>
+                    </div>
+
+                    <div class="lg:col-span-2 space-y-px overflow-hidden rounded-xl border border-white/10 bg-white/10">
+                        <!-- Item 1 -->
+                        <div class="bg-panel p-8 flex gap-6">
+                            <span class="font-mono text-sm text-accent/70 pt-1">A1</span>
+                            <div>
+                                <h3 class="font-display text-lg font-semibold text-white">Dr. Philip Balitsky</h3>
+                                <p class="mt-2 leading-relaxed text-slate-400">
+                                    PhD in Coastal and Civil Engineering.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Item 2 -->
+                        <div class="bg-panel p-8 flex gap-6">
+                            <span class="font-mono text-sm text-accent/70 pt-1">A2</span>
+                            <div>
+                                <h3 class="font-display text-lg font-semibold text-white">Global Execution</h3>
+                                <p class="mt-2 leading-relaxed text-slate-400">
+                                    C2 fluency in English, French, Spanish, Portuguese, and Italian
+                                    for seamless EU consortium integration.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Item 3 -->
+                        <div class="bg-panel p-8 flex gap-6">
+                            <span class="font-mono text-sm text-accent/70 pt-1">A3</span>
+                            <div>
+                                <h3 class="font-display text-lg font-semibold text-white">Project History</h3>
+                                <p class="mt-2 leading-relaxed text-slate-400">
+                                    Extensive technical background supporting industry leaders and
+                                    research institutions including WAVEC, ISIGENERE, and Cerema.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CONTACT ============ -->
+        <section id="contact" class="relative border-t border-white/5 bg-abyss overflow-hidden">
+            <div class="absolute inset-0 grid-overlay opacity-40"></div>
+            <div class="relative mx-auto max-w-3xl px-6 py-24 md:py-32">
+                <div class="text-center">
+                    <p class="font-mono text-xs uppercase tracking-[0.3em] text-accent/80 mb-5">
+                        Get in Touch
+                    </p>
+                    <h2 class="font-display font-bold text-white text-3xl md:text-4xl leading-tight">
+                        Secure Your Infrastructure.
+                    </h2>
+                    <p class="mt-5 leading-relaxed text-slate-400">
+                        Tell us about your platform. We will respond with a scoped validation pathway.
+                    </p>
+                </div>
+
+                <!--
+                    FORM SUBMISSION
+                    Posts to Formspree (works on static GitHub Pages, no backend).
+                    Submitted in the background via JavaScript so the visitor stays on the
+                    site and sees the inline success panel below instead of a redirect.
+                -->
+                <form id="contact-form" action="https://formspree.io/f/xzdqlrnz" method="POST"
+                      class="mt-12 rounded-2xl border border-white/10 bg-panel/70 p-8 md:p-10 backdrop-blur space-y-6">
+
+                    <div class="grid gap-6 sm:grid-cols-2">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-slate-300 mb-2">Name</label>
+                            <input type="text" id="name" name="name" required
+                                   class="w-full rounded-md border border-white/10 bg-abyss/80 px-4 py-3 text-white placeholder-slate-500 focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none transition"
+                                   placeholder="Jane Engineer">
+                        </div>
+                        <div>
+                            <label for="organization" class="block text-sm font-medium text-slate-300 mb-2">Organization</label>
+                            <input type="text" id="organization" name="organization"
+                                   class="w-full rounded-md border border-white/10 bg-abyss/80 px-4 py-3 text-white placeholder-slate-500 focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none transition"
+                                   placeholder="Company / Institution">
+                        </div>
+                    </div>
+
+                    <div class="grid gap-6 sm:grid-cols-2">
+                        <div>
+                            <label for="project-type" class="block text-sm font-medium text-slate-300 mb-2">Project Type</label>
+                            <select id="project-type" name="project-type"
+                                    class="w-full rounded-md border border-white/10 bg-abyss/80 px-4 py-3 text-white focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none transition">
+                                <option value="Floating Wind">Floating Wind</option>
+                                <option value="FPV">FPV</option>
+                                <option value="Multi-Use">Multi-Use</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="analytical-requirement" class="block text-sm font-medium text-slate-300 mb-2">Analytical Requirement</label>
+                            <select id="analytical-requirement" name="analytical-requirement"
+                                    class="w-full rounded-md border border-white/10 bg-abyss/80 px-4 py-3 text-white focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none transition">
+                                <option value="OrcaFlex">OrcaFlex</option>
+                                <option value="SWAN">SWAN</option>
+                                <option value="Structural">Structural</option>
+                                <option value="General Inquiry">General Inquiry</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-slate-300 mb-2">Message</label>
+                        <textarea id="message" name="message" rows="5"
+                                  class="w-full rounded-md border border-white/10 bg-abyss/80 px-4 py-3 text-white placeholder-slate-500 focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none transition resize-y"
+                                  placeholder="Describe your platform, environment, and validation objectives."></textarea>
+                    </div>
+
+                    <button type="submit"
+                            class="w-full rounded-md bg-accent px-6 py-3.5 font-semibold text-abyss hover:bg-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                        Submit
+                    </button>
+
+                    <!-- Inline error message (hidden until a submission fails) -->
+                    <p id="form-error" class="hidden text-center text-sm text-red-400"></p>
+                </form>
+
+                <!-- Inline success panel (hidden until submission succeeds) -->
+                <div id="form-success"
+                     class="mt-12 hidden rounded-2xl border border-accent/30 bg-panel/70 p-10 text-center backdrop-blur">
+                    <div class="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-full border border-accent/40 bg-accent/10">
+                        <svg class="h-6 w-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-2xl font-semibold text-white">Thank you for getting in touch.</h3>
+                    <p class="mt-3 leading-relaxed text-slate-400">
+                        We&rsquo;ll be in contact with you shortly to discuss your project.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="border-t border-white/5 bg-abyss">
+        <div class="mx-auto max-w-6xl px-6 py-12 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+            <div class="flex items-center gap-2.5">
+                <span class="inline-block h-2 w-2 rounded-full bg-accent/80"></span>
+                <span class="font-display font-semibold text-slate-300">Ocean Platform Systems</span>
+            </div>
+            <p class="font-mono text-xs">
+                &copy; <span id="year"></span> Ocean Platform Systems &middot; Marine Engineering Validation
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Submit the contact form in the background so the visitor stays on the site.
+        const form = document.getElementById('contact-form');
+        const errorEl = document.getElementById('form-error');
+        const successEl = document.getElementById('form-success');
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            errorEl.classList.add('hidden');
+            const button = form.querySelector('button[type="submit"]');
+            button.disabled = true;
+            button.textContent = 'Sending…';
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { Accept: 'application/json' },
+                });
+
+                if (response.ok) {
+                    form.classList.add('hidden');
+                    successEl.classList.remove('hidden');
+                    successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    const data = await response.json().catch(() => ({}));
+                    errorEl.textContent =
+                        (data.errors && data.errors.map(err => err.message).join(', ')) ||
+                        'Something went wrong. Please try again, or email us directly.';
+                    errorEl.classList.remove('hidden');
+                    button.disabled = false;
+                    button.textContent = 'Submit';
+                }
+            } catch (err) {
+                errorEl.textContent = 'Network error. Please try again, or email us directly.';
+                errorEl.classList.remove('hidden');
+                button.disabled = false;
+                button.textContent = 'Submit';
+            }
+        });
+    </script>
 </body>
 </html>
