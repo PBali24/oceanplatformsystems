@@ -68,6 +68,15 @@
         @keyframes wave-drift { from { transform: translateX(0); } to { transform: translateX(-50%); } }
         .wave-drift { animation: wave-drift 18s linear infinite; }
         @media (prefers-reduced-motion: reduce) { .wave-drift { animation: none; } }
+
+        /* Global +10% scale (mimics viewing at 110% browser zoom) */
+        html { zoom: 1.10; }
+        /* Approach section stays at base size (cancels the global scale) */
+        #forward { zoom: 0.909091; }
+        /* Logo: +20% from base (1.10 global x 1.0909 = 1.20) */
+        header img { zoom: 1.0909; }
+        /* Capability number bullets (01-04): +15% from base (1.10 x 1.0455 = 1.15) */
+        #capabilities .bg-panel > span { zoom: 1.0455; }
     </style>
 </head>
 
@@ -243,6 +252,41 @@
                     environmental simulations, providing the mathematical proof required to secure
                     consortium grants and EPC deployment.
                 </p>
+            </div>
+        </section>
+
+        <!-- ============ FOUNDER ============ -->
+        <section id="founder" class="relative border-t border-white/5 bg-deep">
+            <div class="mx-auto max-w-6xl px-6 py-24 md:py-32">
+                <div class="grid gap-12 lg:grid-cols-5 lg:items-center">
+                    <!-- Portrait: founder at the outer port of A Coruña -->
+                    <div class="lg:col-span-2">
+                        <figure class="overflow-hidden rounded-xl border border-white/10">
+                            <img src="assets/founder-coruna.jpg"
+                                 alt="Dr. Philip Balitsky at the outer port of A Coruña"
+                                 class="w-full h-auto object-cover" loading="lazy" width="850" height="1086">
+                            <figcaption class="bg-panel px-4 py-3 font-mono text-xs uppercase tracking-[0.18em] text-slate-500">
+                                Outer port of A Coruña, Galicia
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <!-- Bio -->
+                    <div class="lg:col-span-3">
+                        <p class="font-mono text-base md:text-lg uppercase tracking-[0.22em] text-accent/80 mb-5">
+                            Founder
+                        </p>
+                        <h2 class="font-display font-bold text-white text-3xl md:text-4xl leading-tight">
+                            Dr. Philip Balitsky
+                        </h2>
+                        <p class="mt-3 font-mono text-sm text-accent/70">Founder &amp; Principal Engineer</p>
+                        <p class="mt-6 leading-relaxed text-slate-400">
+                            Philip holds a PhD in Coastal and Civil Engineering and a Master&rsquo;s in
+                            Electronic Engineering. He has spent more than fifteen years in advancing
+                            marine energy; working on offshore structures; delivering hydrodynamic and
+                            mooring analysis on commercial projects across three continents.
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
 
